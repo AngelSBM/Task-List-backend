@@ -1,16 +1,15 @@
+const { Schema, model } = require('mongoose');
 const mongoose = require('mongoose');
 
-
-const TaskSchema = new mongoose.Schema({
+const TaskSchema = Schema({
 
     title: {
         type: String,
         require: true,
-        minlength: 1,
-        trim: true 
+        minlength: 1 
     },
 
-    _listid: {
+    listId: {
         type: mongoose.Types.ObjectId,
         require: true
     }
@@ -19,4 +18,4 @@ const TaskSchema = new mongoose.Schema({
 
 
 
-module.exports = mongoose.model('Task', TaskSchema);
+module.exports = model('Task', TaskSchema);

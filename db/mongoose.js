@@ -6,7 +6,7 @@ const dbConnection = async () => {
 
    try {
        
-    await mongoose.connect('mongodb+srv://task_list_user:G4pE4tvpxBtt3mGc@cluster0.anbii.mongodb.net/test',
+    await mongoose.connect('mongodb+srv://task_list_user:SD7voEAJ7JozwSit@cluster0.anbii.mongodb.net/tasklist',
         {
             useNewUrlParser: true,
             useUnifiedTopology: true,
