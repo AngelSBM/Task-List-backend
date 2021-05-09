@@ -248,7 +248,7 @@ app.post( '/list/tasks/post', async (req, res) => {
 app.put( '/list/tasks/update', async (req, res) => {
     // We want to get the id of the task in the request and update that task
     const id  = req.headers.id;
-    const title = req.body.title;
+    const body = req.body;
 
     if( !id ){
         return res.status(400).json({
@@ -259,7 +259,10 @@ app.put( '/list/tasks/update', async (req, res) => {
 
     try {
         
-        const updatedTask = await Task.findByIdAndUpdate( id, { title },  {useFindAndModify: false} );
+        const updatedTask = await Task.findByIdAndUpdate( id, { 
+            title: body.title,
+            completed: body.completed
+         },  {useFindAndModify: false} );
 
         return res.json({
             ok: true,
